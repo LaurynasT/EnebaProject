@@ -16,7 +16,7 @@ namespace EnebaApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.0")
+                .HasAnnotation("ProductVersion", "10.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -25,48 +25,60 @@ namespace EnebaApi.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Cashback")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("cashback");
 
                     b.Property<decimal>("Discount")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("discount");
 
                     b.Property<decimal>("FinalPrice")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("final_price");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("image_url");
 
                     b.Property<decimal>("Likes")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("likes");
 
                     b.Property<string>("Platform")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("platform");
 
                     b.Property<string>("PlatformImageUrl")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("platform_image_url");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("price");
 
                     b.Property<string>("Region")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("region");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("title");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("pk_games");
 
-                    b.ToTable("Games");
+                    b.ToTable("games", (string)null);
                 });
 #pragma warning restore 612, 618
         }
