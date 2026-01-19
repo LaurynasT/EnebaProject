@@ -6,23 +6,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddOpenApi();
 
-// Database - Railway support
 builder.Services.AddDbContext<GameDbContext>(options =>
 {
-    // First try Railway's DATABASE_URL, then fall back to appsettings.json
     var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") 
                           ?? builder.Configuration.GetConnectionString("DefaultConnection");
     
-    // Parse Railway's DATABASE_URL if needed (format: postgresql://user:pass@host:port/db)
     if (!string.IsNullOrEmpty(connectionString) && connectionString.StartsWith("postgresql://"))
     {
         connectionString = ConvertPostgresUrl(connectionString);
     }
     
-    options.UseNpgsql(connectionString);
+    options.UseNpgsql(connectionString)
+           .UseSnakeCaseNamingConvention(); 
 });
 
-// CORS - Good!
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -38,18 +35,17 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Auto-apply migrations on startup (for Railway)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
     try
     {
         db.Database.Migrate();
-        Console.WriteLine("✅ Database migrations applied successfully");
+        Console.WriteLine("Database migrations applied successfully");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"❌ Migration error: {ex.Message}");
+        Console.WriteLine($"Migration error: {ex.Message}");
     }
 }
 
