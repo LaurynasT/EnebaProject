@@ -1,0 +1,6 @@
+@EnebaApi_HostAddress = http://localhost:5125
+
+GET {{EnebaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
