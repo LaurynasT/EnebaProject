@@ -15,23 +15,15 @@ function NavBar({ onSearch }: NavBarProps) {
           <div className="relative flex h-16 items-center justify-between">
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex shrink-0 items-center">
-                <img
-                  src={EnebaLogo}
-                  alt="Your Company"
-                  className="h-10 mr-2"
-                /> 
+                <img src={EnebaLogo} alt="Your Company" className="h-10 mr-2" />
                 <Search onSearch={onSearch} />
-                <img
-                  src={Lithuania}
-                  alt="Lithuania"
-                  className="h-6 ml-2"
-                />
+                <img src={Lithuania} alt="Lithuania" className="h-6 ml-2" />
                 <p className="ml-2 text-white text-sm">
                   <strong>English EU | EUR</strong>
                 </p>
               </div>
             </div>
-          
+
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 type="button"
@@ -94,15 +86,14 @@ function NavBar({ onSearch }: NavBarProps) {
                   />
                 </svg>
               </button>
-               <button
+              <button
                 type="button"
                 className="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 hover:text-white"
               >
                 <img
                   className="size-8 rounded-full border-2 border-solid border-gray-500"
                   src={userLogo}
-                >
-                </img>
+                ></img>
               </button>
             </div>
           </div>

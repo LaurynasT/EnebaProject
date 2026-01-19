@@ -9,7 +9,7 @@ export const fetchGames = async <T>(
   pathParam?: number | string,
   queryParams?: Record<string, any>,
 ): Promise<T> => {
-  const url = pathParam ? `${endpoint}/${pathParam}` : endpoint
-  const response = await axiosInstance.get<T>(url, { params: queryParams })
-  return response.data
-}
+  const url = pathParam ? `${endpoint}/${pathParam}` : endpoint;
+  const response = await axiosInstance.get<T>(url, { params: queryParams });
+  return response.data;
+};

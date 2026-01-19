@@ -1,4 +1,4 @@
-export interface Data<T>{
-    count: number;
-    results: T[];
+export interface Data<T> {
+  count: number;
+  results: T[];
 }

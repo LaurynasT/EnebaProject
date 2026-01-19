@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import NavBar from "../navbar/navbar";
+import NavBar from "../components/navbar/navbar";
 import HomePage from "./Homepage";
 
 function Main() {

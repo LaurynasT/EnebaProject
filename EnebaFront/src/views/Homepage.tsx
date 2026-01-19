@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import type { Game } from "../../Interfaces/Games";
-import { fetchGames } from "../../services/api";
-import GameCard from "../compound/gameCard";
-import type { Data } from "../../Interfaces/Data";
+import type { Game } from "../Interfaces/Games.ts";
+import { fetchGames } from "../services/api";
+import GameCard from "../components/compound/gameCard";
+import type { Data } from "../Interfaces/Data.ts";
 
 interface AppProps {
   searchQuery: string;
@@ -15,7 +15,7 @@ function App({ searchQuery }: AppProps) {
     const loadGames = async () => {
       try {
         const data = await fetchGames<Data<Game>>("list", undefined, {
-          search: searchQuery || undefined
+          search: searchQuery || undefined,
         });
         setGames(data);
       } catch (error) {
@@ -38,9 +38,7 @@ function App({ searchQuery }: AppProps) {
               src={`${import.meta.env.VITE_API_IMAGE_URL}${game.imageUrl}`}
               alt={game.title}
             >
-              {game.cashback > 0 && (
-                <GameCard.Badge>CASHBACK</GameCard.Badge>
-              )}
+              {game.cashback > 0 && <GameCard.Badge>CASHBACK</GameCard.Badge>}
               <GameCard.Platform
                 src={`${import.meta.env.VITE_API_IMAGE_URL}${game.platformImageUrl}`}
                 alt=""
