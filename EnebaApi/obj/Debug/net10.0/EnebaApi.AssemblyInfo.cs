@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EnebaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68afa7b2cac3ee28dfb58db63feaa6df70845e78")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97919d22631456b53b93456e7b7948072339c4bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnebaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EnebaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
